@@ -1,0 +1,497 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    overflow: hidden;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    background-color: rgb(32, 32, 32);
+    color: white;
+}
+
+header .rigth-header{
+    display: flex;
+    align-items: center;
+}
+
+header .rigth-header .ip i{
+    color:black;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+header .rigth-header .ip span{
+    margin-right: 10px;
+}
+
+header .rigth-header .ip{
+    background-color: rgba(240, 248, 255, 0.123);
+    padding: 5px;
+    text-align: center;
+    border-radius: 20px;
+    max-width: 150px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+input{
+    outline: none;
+    border: none;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0 -1px 12px hsla(174, 63%, 15%, 0.15);
+}
+
+#inicarFTP{
+    background-color: rgb(40, 40, 40);
+    box-shadow: 0 -1px 12px hsla(174, 63%, 15%, 0.15);
+    display: flex;
+    padding: 10px;
+    color: white;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 40px;
+    text-align: center;
+}
+
+#tcpip{
+    border: none;
+    width: 100px;
+    padding: 10px;
+    color: white;
+    background-color: rgba(40, 40, 40, 1.0);
+    font-size: 9pt;
+    margin-top: 10px;
+    border-radius: 20px;
+    position: absolute;
+    box-shadow: 0 -1px 12px hsla(174, 63%, 15%, 0.15);
+}
+
+input:invalid{
+    animation: shake .3s;
+    border: 1px solid red;
+}
+
+@keyframes shake{
+    25%{transform: translateX(4px)}
+    50%{transform: translateX(-4px)}
+    75%{transform: translateX(4px)}
+}
+
+.bx-menu{
+    background-color: rgba(221, 221, 221, 0.171);
+    padding: 7px;
+    margin-left: 10px;
+    margin-right: 7px;
+    cursor: pointer;
+    border-radius: 7%;
+}
+
+.form_menu{
+    position: absolute;
+    z-index: 1;
+    right: 1%;
+    width: 250px;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: rgba(40,40,40);
+    box-shadow: 0 -1px 12px hsla(174, 63%, 15%, 0.15);
+    color:white;
+    top:60px;
+    transition: 2.4s;
+    transform: translateX(300px);
+}
+
+.show{
+    transform: translateX(-1px);
+}
+iframe{
+    width: 100%;
+    height: 500px;
+}
+.formScrcpy,.formAdb{
+    display: none;
+}
+
+.see{
+    display: block;
+}
+
+.container{
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+}
+.container > div{
+    margin-top: 70px;
+}
+
+.phone{
+    margin: 20px;
+    background-image: url('../../images/4.png');
+    background-repeat: no-repeat;
+    background-size: 290px;
+    width: 250px;
+    height: 300px;
+    cursor: pointer;
+}
+
+.phone >.tela{
+    text-align: center;
+    animation: frame-change 60.5s ease-in-out infinite;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color:rgb(20, 20, 20);
+    width: 127.5px;
+    height: 265.5px;
+    border-radius: 16px;
+    margin: 12px;
+    margin-left: 81px;
+    transition: 1.2s;
+}
+
+.phone >.tela:hover{
+    opacity: 80%;
+}
+
+.phone >.tela h1{
+    font-size: 12pt;
+    color: white;
+}
+
+.phone >.tela button{
+    margin-top: 20px;
+    background-color: rgb(20, 20, 20);
+    color:white;
+    border: none;
+    padding: 10px;
+    height: 50px; 
+    width: 50px;
+    border-radius: 50%;
+    font-size: 12pt;
+    transition: 1.2s;
+}
+.phone >.tela button > i{
+    font-size: 20pt;
+}
+
+.phone >.tela button:hover{
+    background-color: green;
+}
+
+
+@keyframes frame-change {
+  0% {
+    background-image: url('../../images/frame1.png');
+  }
+  10% {
+    background-image: url('../../images/frame2.png');
+  }
+  20% {
+    background-image: url('../../images/frame3.png');
+  }
+  30% {
+    background-image: url('../../images/frame4.png');
+  }
+  40% {
+    background-image: url('../../images/frame5.png');
+  }
+  50% {
+    background-image: url('../../images/frame6.png');
+  }
+  60% {
+    background-image: url('../../images/frame7.png');
+  }
+  70% {
+    background-image: url('../../images/frame8.png');
+  }
+  80% {
+    background-image: url('../../images/frame9.png');
+  }
+  90% {
+    background-image: url('../../images/frame10.png');
+  }
+
+  100% {
+    background-image: url('../../images/frame5.png');
+  }
+}
+
+.phone:hover{
+    filter: drop-shadow(0.35rem 0.35rem 0.4rem rgba(0, 0, 0, 0.5));
+}
+
+.menuFTP{
+    padding: 9px;
+    background-color: rgb(50, 50, 50);
+    border-radius: 5px;
+}
+
+.menuFTP span{
+    background-color: rgb(60, 60, 60);
+    padding: 4px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}
+
+.menuFTP .close{
+    background-color: rgb(80, 80, 80);
+    cursor: pointer;
+    padding: 10px;
+    font-size: 8pt;
+    transition: 2s;
+    border-radius: 20px;
+}
+
+.menuFTP .close:hover{
+    background-color: rgb(40, 40, 40);
+}
+
+#deviceUser,#device-os{
+    padding: 8px;
+    border-radius: 4px;
+    background-color: rgb(80, 80, 80);
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+    padding: 4px;
+    width: 100%;
+    background-color: green;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer > .btns .servidorFtp{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 5px;
+    width: 130px;
+    border-radius: 20px;
+    padding: 4px;
+    background-color: rgba(240, 248, 255, 0.123);
+    cursor: pointer;
+}
+
+footer > .btns .servidorFtp i{
+    margin-left: 10px;
+}
+
+footer > .btns .servidorFtp span{
+    margin-right: 8px;
+}
+
+.form-ftp,.form-share{
+    position: absolute;
+    bottom: 5%;
+    width: 100%;
+    height: 84%;
+    background-color: white;
+    transition: 2.3s;
+    padding: 10px;
+    box-shadow: 0 -1px 12px hsla(174, 63%, 15%, 0.15);
+    transform: translateX(-100%);    
+    transition: transform 0.5s ease-in-out;
+}
+
+.ftpbtn{
+    border: none;
+    padding: 15px;
+    width: 200px;
+    border-radius: 40px;
+    background-color: rgb(40,40,40);
+    color: white;
+}
+
+nav{
+    padding: 5px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#btn{
+    border: none;
+    padding: 10px;
+    width: 150px;
+    color: white;
+    background-color: rgb(40, 40, 40);
+    border-radius: 4px;
+    font-size: 9pt;
+    margin-bottom: 10px;
+}
+
+.ftpCampo{
+    display: flex;
+    justify-content: space-between;
+}
+
+.showftp{
+    transform: translateX(0%);
+}
+
+.activenow{
+    background-color: rgba(40, 40, 40, 0.123);
+}
+
+.btns{
+    display: flex;
+    justify-content: space-between;
+}
+
+.qrFtp{
+    position: absolute;
+    bottom: 9%;
+    right: 1%;
+    padding: 20px;
+    background-color: white;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 -1px 12px hsla(174, 63%, 15%, 0.15);
+    transition: 2.4s;
+    transform: translateX(200px);
+    margin-bottom: 10px;
+}
+
+.showqrcode{
+    transform: translateX(0px);
+}
+
+.option-phone{
+    position: absolute;
+    right: 2%;
+    bottom: 0;
+    margin-bottom: 15%;
+    background-color: #efefef;
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 40px;
+    border: 1px solid #ddd;    
+    box-shadow: 0 -1px 12px hsla(174, 63%, 15%, 0.15);
+}
+
+.campotexto{
+    box-shadow: 0 -1px 12px hsla(174, 63%, 15%, 0.15);
+    display: flex;
+    padding: 7px;
+    border-radius: 4px;
+    align-items: center;
+}
+
+.formftp label{
+    margin: 10px;
+}
+
+.campotexto input{
+    box-shadow: none;
+    width: 100%;
+}
+.campotexto i{
+    padding: 10px;
+}
+
+.option-phone a{
+    color: rgb(40, 40, 40, 40);
+}
+
+.option-phone i{
+    padding: 10px;
+    margin-right: 5px;
+    margin-left: 5px;
+    background-color: #ddd;
+    font-size: 13pt;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 2.4s;
+}
+
+
+.option-phone i:hover{
+    background-color: rgb(90, 90, 90);
+    color: white;
+}
+
+.cForm{
+    position: absolute;
+    left: 0;
+    width: 305px;
+    height: 100%;
+    bottom: 0;   
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0 -1px 12px hsla(174, 63%, 15%, 0.15);
+    z-index: 1;
+    text-align: center;
+}
+.keys, .recovery, .upload, .beckup{
+    transform: translateX(-400px);
+    transition: transform 0.5s ease-in-out;
+}
+
+.funcSee{
+    transform: translateX(0px);
+}
+
+.btnative{
+    background-color: red;
+    color: white;
+}
+
+.cForm i{
+    font-size: 130pt;
+    color: #efefef;
+    margin-bottom: 10px;
+}
+
+.cForm button{
+    padding: 5px;
+    border: none;
+    background-color: #ddd;
+    border-radius: 4px;
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+
+.cForm h3{
+    margin-bottom: 10px;
+    background-color: #efefef;
+    padding: 10px;
+    color: #ddd;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-size: 14pt;
+}
+
+.cForm p{
+    font-size: 9pt;
+    color: rgb(40, 40, 40);
+}
+
+.cForm select{
+    padding: 10px;
+    border: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: white;
+    outline: none;
+    text-align: center;
+    text-transform: uppercase;
+}

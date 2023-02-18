@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exemplo de reprodução de áudio</title>
+</head>
+<body>
+  <div id="audio-container"></div>
+  <button id="botao-tocar">Tocar áudio</button>
+  <script>
+    function fala() {
+      const audioSrc = "grito.mp3";
+      const audioElement = new Audio(audioSrc);
+      audioElement.play();
+    }
+
+    const botaoTocar = document.getElementById("botao-tocar");
+    botaoTocar.addEventListener("click", fala);
+  </script>
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appeel</title>
+
+    <link rel="stylesheet" href="../assets/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/boxicons/css/boxicons.css">
+
+    <script src="../assets/js/jquery.js"></script>
+    <script type="text/javascript" src="/eel.js"></script>
+
+</head>
+<style type="text/css">
+    /*body{
+        background-image: url('../../images/fundo.jpeg');
+    }*/
+    a{
+        color: black;
+        text-decoration: none;
+    }
+
+    .campoApp{
+        display: flex;
+
+    }
+
+    .apps{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        width: 500px;
+    }
+
+    .teste{
+        padding: 10px;
+        text-align: center;
+    }
+
+    .campoApp img{
+        width: 50px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 1.2s;
+    }
+
+    .campoApp img:hover{
+        background: #efefef;
+        padding: 10px;
+    }
+
+    .image{
+        text-align: center;
+        padding: 20px;
+    }
+    .image img{
+        width: 140px;
+    }
+
+    .nome{
+        font-size: 9pt;
+        color: #ddd;
+    }
+
+    .button{
+        background: green;
+        border: none;
+        padding: 5px;
+        border-radius: 30px;
+        width:220px;
+        color:white;
+        margin-top: 10px;
+        cursor: pointer;
+    }
+    .k:hover{
+        transition: 5s;
+        color: green;
+        background: #efefef;
+        transform: rotate(360deg);
+    }
+</style>
+<body>
+    <section class="container">         
+        <div class="option-phone">
+            <i class='bx bx-navigation k' style="background: rgb(40, 40, 40);color: white;" onclick="startDevices()"></i>
+            <a href="#open-modal" class="btn-pagar" id="btn-open-modal" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <i  class='bx bxl-android k' style="background: rgb(40, 40, 40);color: white;"></i>
+            </a>
+
+            <i class='bx bx-cloud-download' title="pull files"></i>
+            <i class='bx bxs-key' title="Bruteforce"></i>           
+            <i class='bx bx-hdd' title="Beckup"></i>
+            <i class='bx bx-power-off' title="Reboot"></i>
+        </div>        
+
+        <div class="cForm keys">
+            <h3>Selecionar chave</h3>
+            <i class='bx bxs-key' title="Bruteforce"></i>
+            <select id="wordlist">
+                <option value="4">4 digitos numericos</option>
+                <option value="6">6 digitos numericos</option>
+                <option value="0">Classico</option>
+            </select><br>
+            <p>
+                Selecione uma wordlist para te ajudar a testar as senhas automaticas.
+            </p>
+            <button onclick="keyboard()"> Iniciar teste</button>
+        </div>
+
+        <div class="cForm recovery">
+            <h3>Reiniciar dispositivo</h3>
+            <i class='bx bx-power-off' title="Reboot" onclick="reboot()"></i><br>
+            <p>
+                Ativar modo reboot no celular.
+            </p>
+            <button onclick="reboot()">Reiniciar</button>
+        </div>
+
+         <div class="cForm upload">
+            <h3>beckup da galeria</h3>
+            <i class='bx bx-cloud-download' title="pull files" onclick="pull()"></i><br>
+            <p>
+                Copiar todas as imagens e videos do seu celular das pasta /pictures e /DCIM para o pasta do seu PC /Documentos
+            </p>
+            <button onclick="pull()">Copiar</button>
+        </div>
+
+         <div class="cForm beckup">
+            <h3>Beckup do dispositivo</h3>
+            <i class='bx bx-hdd' title="Beckup" onclick="beckup()"></i><br>
+            <p>
+                Fazer beckup completo do seu dispositivo 
+            </p>
+            <button onclick="beckup()">Inicar bekup</button>
+        </div>
+
+        <div class="phone" class="phone">
+            <div class="tela" onclick="startDevices()" title="Display Celular">
+                <div>
+                    <h1>netools</h1>
+                </div>
+                <div>
+                </div>
+            </div>
+
+        </div>
+        <div>
+            <h1>Sistema de controle de celular</h1>
+            <label for="menu" id="conn">[Dispositivo]</label><br><br>
+            <form onsubmit="wifiConnect(); return false;">
+                <input
+                    type="text"
+                    pattern="[0-9.]*"
+                    placeholder=" 0 . 0 . 0 . 0"
+                    id="meuip">
+                <br>
+                <button id="tcpip">Connectar</button>
+            </form>
+        </div>
+    </section>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="topButtons">
+                        <div class="titulo">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Android tools</h1>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">                    
+                    <div class="campoApp">
+                        <div class="apps">
+                            <div class="teste">
+                                <img src="../icons/1.png" class="icon">
+                                <span class="nome">office-remote</span>
+                            </div>
+                            <div class="teste">
+                                <img src="../icons/4.png" class="icon">
+                                <span class="nome">wifi-ftp-server</span>
+                            </div>
+                            <div class="teste">
+                                <img src="../icons/7.png" class="icon">
+                                <span class="nome">TeamViewer</span>
+                            </div>
+                            <div class="teste">
+                                <img src="../icons/8.png" class="icon">
+                                <span class="nome">termux</span>
+                            </div>
+
+
+                        </div>
+                        <div class="image">
+                            <img src="../icons/7.png" class="bigIcon">
+                            <h3 class="bigNome">TeamViewer</h3>
+                            <h6>Instalação</h6>
+                            <button onclick="apkinstaller('TeamViewer.apk')" class="button">Instalar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../assets/js/bootstrap.js"></script>    
+
+    <script type="text/javascript" src="../assets/js/vanilla-tilt.js"></script>
+    <script type="text/javascript">
+        VanillaTilt.init(document.querySelector(".phone"), {
+            max: 25,
+            speed: 400
+        });
+        
+        //It also supports NodeList
+        VanillaTilt.init(document.querySelectorAll(".phone"));
+    </script>
+
+    <script type="text/javascript">
+        let videoList = document.querySelectorAll('.campoApp .teste');
+
+        videoList.forEach(vid => {
+           vid.onclick = () => {
+              let src = vid.querySelector('.campoApp .icon').src;
+              let title = vid.querySelector('.campoApp .nome').innerHTML;
+              document.querySelector('.bigIcon').src = src;
+              document.querySelector('.bigNome').innerHTML = title;
+
+              document.querySelector('.button').onclick = function() {
+                 apkinstaller(title);
+              };
+           };
+        });
+
+        function apkinstaller(app){
+            eel.apkinstaller(app)
+        }
+
+    </script>
+    <script type="text/javascript" src="../app.js"></script>
+    <script type="text/javascript">
+        $('.bxs-key').click(function() {
+            $('.keys').toggleClass('funcSee')  
+
+            $('.upload').removeClass('funcSee')  
+            $('.beckup').removeClass('funcSee') 
+            $('.recovery').removeClass('funcSee')    
+        })
+
+        $('.bx-cloud-download').click(function() {
+            $('.upload').toggleClass('funcSee')
+
+            $('.keys').removeClass('funcSee') 
+            $('.beckup').removeClass('funcSee') 
+            $('.recovery').removeClass('funcSee')   
+        })
+
+        $('.bx-hdd').click(function() {
+            $('.beckup').toggleClass('funcSee')
+
+            $('.keys').removeClass('funcSee') 
+            $('.upload').removeClass('funcSee')
+            $('.recovery').removeClass('funcSee')   
+        })
+
+        $('.bx-power-off').click(function() {
+            $('.recovery').toggleClass('funcSee')
+
+            $('.keys').removeClass('funcSee') 
+            $('.upload').removeClass('funcSee')
+            $('.beckup').removeClass('funcSee') 
+        })
+    </script>
+</body>
+
+</html>

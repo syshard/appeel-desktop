@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appeel Desktop</title>
+    <link rel="icon" href="../android.png">
+
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/pulse.css">
+    <link rel="stylesheet" href="assets/css/boxicons/css/boxicons.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <script src="assets/js/jquery.js"></script>
+    <script src="qrcode/qrcode.js"></script>
+    <script type="text/javascript" src="/eel.js"></script>
+
+</head>
+
+<body>
+
+    <header>
+        <div>
+            <h2>appeel desktop</h2>
+        </div>
+        <div class="rigth-header">
+            <div class="ip">
+                <i class="bx bx-wifi"></i>
+                <span id="textIP">[seu ip]</span>
+            </div>
+            <!-- <div>
+                <i class="bx bx-menu" onclick="cmdMenu()" title="option"></i>
+            </div>
+            <div class="form_menu">
+                <div>
+                    <div>
+                        <p id="device-os">[System]</p>
+                    </div>
+                    <div>
+                        <p id="deviceUser">[User]</p>
+                    </div>
+                    <div class="menuFTP">
+                        <span class="item2" id="ftpLink">[Status FTP]</span>
+                        <span class="close" >Feichar servidor</span>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </header>
+
+    <div id="audio-container"></div>
+  
+    <iframe src="./pages/scrcpy.html" id="scrcpy" class="formScrcpy see"></iframe>
+    <iframe src="./pages/adb_enabled.html" id="adb_enabled" class="formAdb"></iframe>
+
+    <div class="form-ftp">
+        <nav>
+            <div>
+                Protocolo de transferência de ficheiros
+            </div>
+            <div>
+                <button id="btn" onclick="closeFtp()">Feichar servidor</button>
+            </div>
+        </nav>
+        <section class="ftpCampo">
+            <div>
+                <h3>Configurações</h3>
+                <form class="formftp" onsubmit="ftpStart(); return false">
+                    <label for="user">usuário*</label>
+                    <div class="campotexto">
+                        <i class="bx bx-user"></i>
+                        <input type="text" placeholder="usuario" id="usuarioftp">
+                    </div>
+                    <label for="user">senha*</label>
+                     <div class="campotexto">
+                        <i class="bx bx-key"></i>
+                        <input type="password" placeholder="senha" id="senhaftp">
+                        <i class='bx bx-low-vision' onclick="showhide()"></i>
+                    </div><br>
+                    <input type="submit" value="Iniciar servidor" id="inicarFTP">
+                </form>
+            </div>
+            <div>
+                <main class="button-wrapper">
+                    <button class="pulse-button" onclick="ftpStart()">
+                    </button>
+                </main>
+            </div>
+        </section>
+    </div>
+
+    <div class="form-share">
+        <div class="campo">
+            <h5>Iniciar Servidor HTTP</h5>
+            <div class="dados">
+                <p id="device-os"></p>
+                <span id="hostHttp">host ftp</span><br>
+                <span id="portHttp">port ftp</span>
+            </div>
+        </div>
+        <hr>
+        <center>
+            <img src="./images/http.png" width="350px"><br>
+            <button class="ftpbtn" onclick="ftpHttp()">iniciar site</button>
+        </center>
+    </div>
+    <footer>
+        <div>
+            <span id="status">[coneccao]</span>
+        </div>
+        <div class="btns">
+            <div class="servidorFtp" onclick="openFtp()">
+                <i class="bx bx-server"></i>
+                <span>Servidor ftp</span>
+            </div>
+        </div>
+    </footer>
+
+    <div id="qrcodeftp" class="qrFtp"></div>
+
+    <script type="text/javascript" src="./app.js"></script>
+    <script src="assets/js/bootstrap.js"></script>    
+
+    <script type="text/javascript" src="assets/js/vanilla-tilt.js"></script>
+
+    <script type="text/javascript">
+        VanillaTilt.init(document.querySelector(".phone"), {
+            max: 25,
+            speed: 400
+        });
+        
+        //It also supports NodeList
+        VanillaTilt.init(document.querySelectorAll(".phone"));
+
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.4.4/mobile-detect.min.js"></script>
+
+    <script>
+        var md = new MobileDetect(window.navigator.userAgent);
+
+        var deviceOS = "Desconhecido";
+
+        if (md.mobile() || md.tablet()) {
+          if (md.match(/Windows Phone/i)) deviceOS = "Windows Phone";
+          if (md.match(/Android/i)) deviceOS = "Android";
+          if (md.match(/iPhone|iPad|iPod/i)) deviceOS = "iOS";
+        } else {
+          if (navigator.appVersion.indexOf("Win") != -1) deviceOS = "Windows";
+          if (navigator.appVersion.indexOf("Mac") != -1) deviceOS = "MacOS";
+          if (navigator.appVersion.indexOf("X11") != -1) deviceOS = "UNIX";
+          if (navigator.appVersion.indexOf("Linux") != -1) deviceOS = "Linux";
+        }
+
+        document.getElementById("device-os").innerHTML = deviceOS;
+    </script>
+
+</body>
+
+</html>
